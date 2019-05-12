@@ -1,0 +1,36 @@
+buildscript {
+    ext {
+        dl4j_version = "1.0.0-beta4"
+    }
+    repositories {
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        mavenCentral()
+    }
+}
+
+apply plugin: "application"
+
+repositories {
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.deeplearning4j:deeplearning4j-core:${dl4j_version}"
+    implementation "org.nd4j:nd4j-native-platform:${dl4j_version}"
+    implementation "org.slf4j:slf4j-simple:1.7.25"
+    implementation "org.slf4j:slf4j-api:1.7.25"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "3.5"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir "src/main/java"
+        }
+    }
+}
