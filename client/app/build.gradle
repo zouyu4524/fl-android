@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.mpchart"
+        minSdkVersion 24
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/INDEX.LIST'
+
+    }
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation (group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '1.0.0-beta4') {
+        exclude group: 'org.bytedeco', module: 'opencv-platform'
+        exclude group: 'org.bytedeco', module: 'leptonica-platform'
+        exclude group: 'org.bytedeco', module: 'hdf5-platform'
+        exclude group: 'org.nd4j', module: 'nd4j-base64'
+    }
+    implementation group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta4'
+    implementation group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta4', classifier: "android-arm"
+    implementation group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta4', classifier: "android-arm64"
+    implementation group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta4', classifier: "android-x86"
+    implementation group: 'org.nd4j', name: 'nd4j-native', version: '1.0.0-beta4', classifier: "android-x86_64"
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.5-1.5'
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.5-1.5', classifier: "android-arm"
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.5-1.5', classifier: "android-arm64"
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.5-1.5', classifier: "android-x86"
+    implementation group: 'org.bytedeco', name: 'openblas', version: '0.3.5-1.5', classifier: "android-x86_64"
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.0.1-1.5'
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.0.1-1.5', classifier: "android-arm"
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.0.1-1.5', classifier: "android-arm64"
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.0.1-1.5', classifier: "android-x86"
+    implementation group: 'org.bytedeco', name: 'opencv', version: '4.0.1-1.5', classifier: "android-x86_64"
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.78.0-1.5'
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.78.0-1.5', classifier: "android-arm"
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.78.0-1.5', classifier: "android-arm64"
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.78.0-1.5', classifier: "android-x86"
+    implementation group: 'org.bytedeco', name: 'leptonica', version: '1.78.0-1.5', classifier: "android-x86_64"
+
+    implementation 'com.google.code.gson:gson:2.8.2'
+    annotationProcessor 'org.projectlombok:lombok:1.16.16'
+
+//This corrects for a junit version conflict.
+    configurations.all {
+        resolutionStrategy.force 'junit:junit:4.12'
+    }
+
+}

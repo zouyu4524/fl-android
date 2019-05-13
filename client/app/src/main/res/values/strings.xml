@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">HAR beta</string>
+    <string name="butten_label">Label</string>
+    <string name="butten_train">Train Model</string>
+    <string-array name="list_labels">
+        <item>Jogging</item>
+        <item>Walking</item>
+        <item>Upstairs</item>
+        <item>Downstairs</item>
+        <item>Sitting</item>
+        <item>Standing</item>
+    </string-array>
+    <string name="butten_get_model">Update Model</string>
+    <string name="folder_sync">DropsyncFiles</string>
+    <string name="load_error">Load model error</string>
+    <string name="model_loaded">Remote model is loaded</string>
+    <string name="train_finish">Training is finished</string>
+    <string name="label_complete">Sample is labelled.</string>
+    <string name="butten_inference">Infer</string>
+    <string name="warning_load_model">Please load model first.</string>
+</resources>
