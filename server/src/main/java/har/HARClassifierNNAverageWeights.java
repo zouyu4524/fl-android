@@ -10,6 +10,10 @@ import java.util.*;
 
 public class HARClassifierNNAverageWeights {
 
+    private static final String updatedModel = "res/model/trained_har_nn_updated.zip";
+    private static final String originModel = "C:\\Users\\yuze\\Dropbox\\dl4j_codes\\Trained_HAR_NN.zip";
+    private static final String onDeviceModelPath = "C:\\Users\\yuze\\Desktop\\on-device-model";
+
     public static void AverageWeights(List<File> files, File originModel, int layer, double alpha) {
         /*
             files indicates locations that mobile device uploaded model
@@ -50,7 +54,7 @@ public class HARClassifierNNAverageWeights {
         model.setParam(String.format("%d_W", layer), avgWeights);
         model.setParam(String.format("%d_b", layer), avgBias);
         try {
-            ModelSerializer.writeModel(model, "res/model/trained_har_nn_updated.zip", false);
+            ModelSerializer.writeModel(model, updatedModel, false);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -58,7 +62,7 @@ public class HARClassifierNNAverageWeights {
 
     public static void main(String[] args) throws Exception {
 
-        File dir = new File("/home/yuze/Desktop/on-device-model");
+        File dir = new File(onDeviceModelPath);
         File[] listOfFiles = dir.listFiles();
         List<File> models = new ArrayList<>();
         for (int i = 0; i < listOfFiles.length; i++) {
@@ -66,7 +70,7 @@ public class HARClassifierNNAverageWeights {
                 models.add(listOfFiles[i]);
             }
         }
-        File originalModel = new File("/home/yuze/Dropbox/dl4j_codes/Trained_HAR_NN.zip");
+        File originalModel = new File(originModel);
         AverageWeights(models, originalModel, 2, 0.0);
     }
 }
