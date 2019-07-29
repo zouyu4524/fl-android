@@ -4,7 +4,8 @@ Implementation of federated learning on Android devices.
 
 ## Demo
 
-![Screenshot of the Android app.](https://camo.githubusercontent.com/b3a3e6429ce42bb844cadd63abc65b15ace44d18/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f393364386637323167793167327a6778796b6261376a3230753031706f646d622e6a7067)
+<p align="center">
+<img src="https://camo.githubusercontent.com/b3a3e6429ce42bb844cadd63abc65b15ace44d18/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f393364386637323167793167327a6778796b6261376a3230753031706f646d622e6a7067" alt="Screenshot of the Android app." width="300"></p>
 
 ## Project Structure
 
@@ -31,7 +32,9 @@ We are going to implement the federated learning in realistic manner so that we 
 
 Firstly, clone the repo as follows:  
 
-`git clone https://github.com/zouyu4524/fl-android.git`
+```
+git clone https://github.com/zouyu4524/fl-android.git
+```
 
 ### Server-side
 
